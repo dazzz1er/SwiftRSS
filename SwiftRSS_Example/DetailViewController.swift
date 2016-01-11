@@ -49,7 +49,7 @@ class DetailViewController: UIViewController {
                         
                         if let date = item.pubDate
                         {
-                            var formatter = NSDateFormatter()
+                            let formatter = NSDateFormatter()
                             formatter.dateFormat = "MMM dd, yyyy"
                             
                             template = template.stringByReplacingOccurrencesOfString("###DATE###", withString: formatter.stringFromDate(date))

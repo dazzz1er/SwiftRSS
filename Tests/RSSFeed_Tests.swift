@@ -26,7 +26,7 @@ class RSSFeed_Tests: XCTestCase {
         let item: RSSItem = RSSItem()
         item.setLinkAsString("http://www.apple.com")
         
-        if let link = item.link
+        if let _ = item.link
         {
             XCTAssert(true, "link is valid")
         }
@@ -39,7 +39,7 @@ class RSSFeed_Tests: XCTestCase {
     
     func test_archivingAndUnarchiving_withValidObject_shouldReturnValidObjectWithSameValues()
     {
-        var feed: RSSFeed = RSSFeed()
+        let feed: RSSFeed = RSSFeed()
         
         feed.title = "Feed title"
         feed.setLinkAsString("http://www.swift.io")
@@ -49,7 +49,7 @@ class RSSFeed_Tests: XCTestCase {
         feed.generator = "My Generator"
         feed.copyright = "Copyright Acme corp"
         
-        var item: RSSItem = RSSItem()
+        let item: RSSItem = RSSItem()
         
         item.title = "Hello"
         item.setLinkAsString("http://www.apple.com")
@@ -65,7 +65,7 @@ class RSSFeed_Tests: XCTestCase {
         
         feed.items.append(item)
         
-        var item2: RSSItem = RSSItem()
+        let item2: RSSItem = RSSItem()
         
         item2.title = "Hello2"
         item2.setLinkAsString("http://www.google.com")
@@ -85,7 +85,7 @@ class RSSFeed_Tests: XCTestCase {
         
         NSKeyedArchiver.archiveRootObject(feed, toFile: archive)
         
-        var feed2 = NSKeyedUnarchiver.unarchiveObjectWithFile(archive) as! RSSFeed
+        let feed2 = NSKeyedUnarchiver.unarchiveObjectWithFile(archive) as! RSSFeed
 
         XCTAssert(feed.title == feed2.title, "")
         XCTAssert(feed.link == feed2.link, "")
@@ -96,7 +96,7 @@ class RSSFeed_Tests: XCTestCase {
         XCTAssert(feed.copyright == feed2.copyright, "")
         XCTAssert(feed.items.count == feed2.items.count, "")
         
-        var itemcopy = feed2.items[0]
+        let itemcopy = feed2.items[0]
         
         XCTAssert(item.title == itemcopy.title, "")
         XCTAssert(item.link == itemcopy.link, "")
@@ -112,7 +112,7 @@ class RSSFeed_Tests: XCTestCase {
         XCTAssert(item.categories[1] == itemcopy.categories[1], "")
         XCTAssert(item.categories[2] == itemcopy.categories[2], "")
         
-        var item2copy = feed2.items[1]
+        let item2copy = feed2.items[1]
         
         XCTAssert(item2.title == item2copy.title, "")
         XCTAssert(item2.link == item2copy.link, "")

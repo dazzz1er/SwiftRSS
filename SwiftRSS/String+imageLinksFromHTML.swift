@@ -15,7 +15,7 @@ extension String {
         
         var error: NSError?
         
-        var full_range: NSRange = NSMakeRange(0, self.characters.count)
+        let full_range: NSRange = NSMakeRange(0, self.characters.count)
         
         do {
             let regex = try NSRegularExpression(pattern:"(https?)\\S*(png|jpg|jpeg|gif)", options:.CaseInsensitive)
@@ -24,11 +24,11 @@ extension String {
                 
                 // didn't find a way to bridge an NSRange to Range<String.Index>
                 // bridging String to NSString instead
-                var str = (self as NSString).substringWithRange(result!.range) as String
+                let str = (self as NSString).substringWithRange(result!.range) as String
                 
                 matches.append(NSURL(string: str)!)
             }
-        } catch var error1 as NSError {
+        } catch let error1 as NSError {
             error = error1
         }
         

@@ -26,7 +26,7 @@ class RSSItem_Tests: XCTestCase {
         let item: RSSItem = RSSItem()
         item.setLinkAsString("http://www.apple.com")
         
-        if let link = item.link
+        if let _ = item.link
         {
             XCTAssert(true, "link is valid")
         }
@@ -39,7 +39,7 @@ class RSSItem_Tests: XCTestCase {
     
     func test_archivingAndUnarchiving_withValidObject_shouldReturnValidObjectWithSameValues()
     {
-        var item: RSSItem = RSSItem()
+        let item: RSSItem = RSSItem()
         
         item.title = "Hello"
         item.setLinkAsString("http://www.apple.com")
@@ -57,7 +57,7 @@ class RSSItem_Tests: XCTestCase {
         
         NSKeyedArchiver.archiveRootObject(item, toFile: archive)
         
-        var item2 = NSKeyedUnarchiver.unarchiveObjectWithFile(archive) as! RSSItem
+        let item2 = NSKeyedUnarchiver.unarchiveObjectWithFile(archive) as! RSSItem
         
         XCTAssert(item.title == item2.title, "")
         XCTAssert(item.link == item2.link, "")

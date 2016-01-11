@@ -12,7 +12,7 @@ import XCTest
 class NSDateExtension_Tests: XCTestCase {
     
     let GMT_timeZone: NSTimeZone! = NSTimeZone(forSecondsFromGMT: 0)
-    let calendar: NSCalendar! = NSCalendar(calendarIdentifier: NSGregorianCalendar)
+    let calendar: NSCalendar! = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)
     let calendar_flags = NSCalendarUnit(rawValue: UInt.max)
 
     override func setUp() {
@@ -32,7 +32,7 @@ class NSDateExtension_Tests: XCTestCase {
         
         if let date: NSDate = NSDate.dateFromInternetDateTimeString(dateString)
         {
-            var dateComponent = calendar.components(calendar_flags, fromDate: date)
+            let dateComponent = calendar.components(calendar_flags, fromDate: date)
             
             XCTAssert(dateComponent.weekday == 1, "")
             XCTAssert(dateComponent.day == 19, "")
@@ -55,7 +55,7 @@ class NSDateExtension_Tests: XCTestCase {
         
         if let date: NSDate = NSDate.dateFromInternetDateTimeString(dateString)
         {
-            var dateComponent = calendar.components(calendar_flags, fromDate: date)
+            let dateComponent = calendar.components(calendar_flags, fromDate: date)
             
             XCTAssert(dateComponent.weekday == 1, "")
             XCTAssert(dateComponent.day == 19, "")
@@ -78,7 +78,7 @@ class NSDateExtension_Tests: XCTestCase {
         
         if let date: NSDate = NSDate.dateFromInternetDateTimeString(dateString)
         {
-            var dateComponent = calendar.components(calendar_flags, fromDate: date)
+            let dateComponent = calendar.components(calendar_flags, fromDate: date)
             
             XCTAssert(dateComponent.weekday == 1, "")
             XCTAssert(dateComponent.day == 19, "")
@@ -100,7 +100,7 @@ class NSDateExtension_Tests: XCTestCase {
         
         if let date: NSDate = NSDate.dateFromInternetDateTimeString(dateString)
         {
-            var dateComponent = calendar.components(calendar_flags, fromDate: date)
+            let dateComponent = calendar.components(calendar_flags, fromDate: date)
             
             XCTAssert(dateComponent.weekday == 1, "")
             XCTAssert(dateComponent.day == 19, "")
@@ -122,7 +122,7 @@ class NSDateExtension_Tests: XCTestCase {
         
         if let date: NSDate = NSDate.dateFromInternetDateTimeString(dateString)
         {
-            var dateComponent = calendar.components(calendar_flags, fromDate: date)
+            let dateComponent = calendar.components(calendar_flags, fromDate: date)
             
             XCTAssert(dateComponent.day == 19, "")
             XCTAssert(dateComponent.month == 5, "")
@@ -144,7 +144,7 @@ class NSDateExtension_Tests: XCTestCase {
         
         if let date: NSDate = NSDate.dateFromInternetDateTimeString(dateString)
         {
-            var dateComponent = calendar.components(calendar_flags, fromDate: date)
+            let dateComponent = calendar.components(calendar_flags, fromDate: date)
             
             XCTAssert(dateComponent.day == 19, "")
             XCTAssert(dateComponent.month == 5, "")
@@ -166,7 +166,7 @@ class NSDateExtension_Tests: XCTestCase {
         
         if let date: NSDate = NSDate.dateFromInternetDateTimeString(dateString)
         {
-            var dateComponent = calendar.components(calendar_flags, fromDate: date)
+            let dateComponent = calendar.components(calendar_flags, fromDate: date)
             
             XCTAssert(dateComponent.day == 19, "")
             XCTAssert(dateComponent.month == 5, "")
@@ -187,7 +187,7 @@ class NSDateExtension_Tests: XCTestCase {
         
         if let date: NSDate = NSDate.dateFromInternetDateTimeString(dateString)
         {
-            var dateComponent = calendar.components(calendar_flags, fromDate: date)
+            let dateComponent = calendar.components(calendar_flags, fromDate: date)
             
             XCTAssert(dateComponent.day == 19, "")
             XCTAssert(dateComponent.month == 5, "")
@@ -212,7 +212,7 @@ class NSDateExtension_Tests: XCTestCase {
         
         if let date: NSDate = NSDate.dateFromInternetDateTimeString(dateString)
         {
-            var dateComponent = calendar.components(calendar_flags, fromDate: date)
+            let dateComponent = calendar.components(calendar_flags, fromDate: date)
             
             XCTAssert(dateComponent.day == 19, "")
             XCTAssert(dateComponent.month == 12, "")
@@ -237,7 +237,7 @@ class NSDateExtension_Tests: XCTestCase {
         if let date: NSDate = NSDate.dateFromInternetDateTimeString(dateString)
         {
             
-            var dateComponent = calendar.components(calendar_flags, fromDate: date)
+            let dateComponent = calendar.components(calendar_flags, fromDate: date)
             
             XCTAssert(dateComponent.day == 1, "")
             XCTAssert(dateComponent.month == 1, "")
@@ -259,7 +259,7 @@ class NSDateExtension_Tests: XCTestCase {
         
         if let date: NSDate = NSDate.dateFromInternetDateTimeString(dateString)
         {
-            var dateComponent = calendar.components(calendar_flags, fromDate: date)
+            let dateComponent = calendar.components(calendar_flags, fromDate: date)
             
             XCTAssert(dateComponent.day == 1, "")
             XCTAssert(dateComponent.month == 1, "")

@@ -20,7 +20,7 @@ class RSSParser_Tests: XCTestCase {
     let PDT_timeZone: NSTimeZone! = NSTimeZone(name: "PST")
     let GMT_timeZone: NSTimeZone! = NSTimeZone(name: "GMT")
     let DST_timeZone: NSTimeZone! = NSTimeZone(forSecondsFromGMT: 60 * 60 * -4)
-    let calendar: NSCalendar! = NSCalendar(calendarIdentifier: NSGregorianCalendar)
+    let calendar: NSCalendar! = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)
     let calendar_flags = NSCalendarUnit(rawValue: UInt.max)
     
     override func setUp() {
@@ -57,7 +57,7 @@ class RSSParser_Tests: XCTestCase {
                 
                 if let date = testFeed.lastBuildDate
                 {
-                    var dateComponent = self.calendar.components(self.calendar_flags, fromDate: date)
+                    let dateComponent = self.calendar.components(self.calendar_flags, fromDate: date)
                     
                     XCTAssert(dateComponent.weekday == 5, "")
                     XCTAssert(dateComponent.day == 25, "")
@@ -95,7 +95,7 @@ class RSSParser_Tests: XCTestCase {
                 
                 if let date = myItem.pubDate
                 {
-                    var dateComponent = self.calendar.components(self.calendar_flags, fromDate: date)
+                    let dateComponent = self.calendar.components(self.calendar_flags, fromDate: date)
                     
                     XCTAssert(dateComponent.weekday == 5, "")
                     XCTAssert(dateComponent.day == 25, "")
@@ -131,7 +131,7 @@ class RSSParser_Tests: XCTestCase {
                 
                 if let date = myItem.pubDate
                 {
-                    var dateComponent = self.calendar.components(self.calendar_flags, fromDate: date)
+                    let dateComponent = self.calendar.components(self.calendar_flags, fromDate: date)
                     
                     XCTAssert(dateComponent.weekday == 3, "")
                     XCTAssert(dateComponent.day == 9, "")
@@ -167,7 +167,7 @@ class RSSParser_Tests: XCTestCase {
                 
                 if let date = myItem.pubDate
                 {
-                    var dateComponent = self.calendar.components(self.calendar_flags, fromDate: date)
+                    let dateComponent = self.calendar.components(self.calendar_flags, fromDate: date)
                     
                     XCTAssert(dateComponent.weekday == 4, "")
                     XCTAssert(dateComponent.day == 3, "")
@@ -203,7 +203,7 @@ class RSSParser_Tests: XCTestCase {
                 
                 if let date = myItem.pubDate
                 {
-                    var dateComponent = self.calendar.components(self.calendar_flags, fromDate: date)
+                    let dateComponent = self.calendar.components(self.calendar_flags, fromDate: date)
                     
                     XCTAssert(dateComponent.weekday == 3, "")
                     XCTAssert(dateComponent.day == 26, "")
@@ -239,7 +239,7 @@ class RSSParser_Tests: XCTestCase {
                 
                 if let date = myItem.pubDate
                 {
-                    var dateComponent = self.calendar.components(self.calendar_flags, fromDate: date)
+                    let dateComponent = self.calendar.components(self.calendar_flags, fromDate: date)
                     
                     XCTAssert(dateComponent.weekday == 3, "")
                     XCTAssert(dateComponent.day == 19, "")
@@ -275,7 +275,7 @@ class RSSParser_Tests: XCTestCase {
                 
                 if let date = myItem.pubDate
                 {
-                    var dateComponent = self.calendar.components(self.calendar_flags, fromDate: date)
+                    let dateComponent = self.calendar.components(self.calendar_flags, fromDate: date)
                     
                     XCTAssert(dateComponent.weekday == 6, "")
                     XCTAssert(dateComponent.day == 15, "")
@@ -311,7 +311,7 @@ class RSSParser_Tests: XCTestCase {
                 
                 if let date = myItem.pubDate
                 {
-                    var dateComponent = self.calendar.components(self.calendar_flags, fromDate: date)
+                    let dateComponent = self.calendar.components(self.calendar_flags, fromDate: date)
                     
                     XCTAssert(dateComponent.weekday == 6, "")
                     XCTAssert(dateComponent.day == 8, "")
@@ -375,7 +375,7 @@ class RSSParser_Tests: XCTestCase {
                 
                 if let date = myItem.pubDate
                 {
-                    var dateComponent = self.calendar.components(self.calendar_flags, fromDate: date)
+                    let dateComponent = self.calendar.components(self.calendar_flags, fromDate: date)
                     
                     XCTAssert(dateComponent.weekday == 6, "")
                     XCTAssert(dateComponent.day == 11, "")
@@ -430,7 +430,7 @@ class RSSParser_Tests: XCTestCase {
                 
                 if let date = testFeed.lastBuildDate
                 {
-                    var dateComponent = self.calendar.components(self.calendar_flags, fromDate: date)
+                    let dateComponent = self.calendar.components(self.calendar_flags, fromDate: date)
                     
                     XCTAssert(dateComponent.weekday == 6, "")
                     XCTAssert(dateComponent.day == 3, "")
@@ -466,7 +466,7 @@ class RSSParser_Tests: XCTestCase {
                 
                 if let date = myItem.pubDate
                 {
-                    var dateComponent = self.calendar.components(self.calendar_flags, fromDate: date)
+                    let dateComponent = self.calendar.components(self.calendar_flags, fromDate: date)
                     
                     XCTAssert(dateComponent.weekday == 3, "")
                     XCTAssert(dateComponent.day == 30, "")
@@ -532,7 +532,7 @@ class RSSParser_Tests: XCTestCase {
                 
                 if let date = myItem.pubDate
                 {
-                    var dateComponent = self.calendar.components(self.calendar_flags, fromDate: date)
+                    let dateComponent = self.calendar.components(self.calendar_flags, fromDate: date)
                     
                     XCTAssert(dateComponent.weekday == 6, "")
                     XCTAssert(dateComponent.day == 12, "")
@@ -645,7 +645,7 @@ class RSSParser_Tests: XCTestCase {
                 
                 if let date = myItem.pubDate
                 {
-                    var dateComponent = self.calendar.components(self.calendar_flags, fromDate: date)
+                    let dateComponent = self.calendar.components(self.calendar_flags, fromDate: date)
                     
                     XCTAssert(dateComponent.weekday == 4, "")
                     XCTAssert(dateComponent.day == 24, "")
@@ -683,7 +683,7 @@ class RSSParser_Tests: XCTestCase {
                 
                 if let date = myItem.pubDate
                 {
-                    var dateComponent = self.calendar.components(self.calendar_flags, fromDate: date)
+                    let dateComponent = self.calendar.components(self.calendar_flags, fromDate: date)
                     
                     XCTAssert(dateComponent.weekday == 1, "")
                     XCTAssert(dateComponent.day == 21, "")

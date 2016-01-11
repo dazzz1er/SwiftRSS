@@ -71,6 +71,7 @@
 		11C8C1AD19DC3EB80040D5F4 /* NSDate+dateFromInternetDateTimeString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+dateFromInternetDateTimeString.swift"; sourceTree = "<group>"; };
 		11C8C1AF19DC7A1E0040D5F4 /* NSDate+dateFromInternetDateTimeString_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+dateFromInternetDateTimeString_Tests.swift"; sourceTree = "<group>"; };
 		11F4B4C719E890030020EB6B /* Empty.rss */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Empty.rss; sourceTree = "<group>"; };
+		2C7DDDE01C43F36F00F02CF6 /* SwiftRSS.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = SwiftRSS.podspec; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +129,7 @@
 		119025CD19B92DA1009184BE = {
 			isa = PBXGroup;
 			children = (
+				2C7DDDE01C43F36F00F02CF6 /* SwiftRSS.podspec */,
 				119025FA19B92DB1009184BE /* SwiftRSS */,
 				119025D819B92DA1009184BE /* SwiftRSS_Example */,
 				114E26BF19BA399B00D292F3 /* Tests */,
