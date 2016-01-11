@@ -8,29 +8,29 @@
 
 import UIKit
 
-class RSSFeed: NSObject, NSCoding {
+public class RSSFeed: NSObject, NSCoding {
     
-    var items: [RSSItem]! = [RSSItem]()
+    public var items: [RSSItem]! = [RSSItem]()
     
-    var title: String?
-    var link: NSURL?
+    public var title: String?
+    public var link: NSURL?
     
     func setLinkAsString(let linkString: String!)
     {
         link = NSURL(string: linkString)
     }
     
-    var feedDescription: String?
-    var language: String?
-    var lastBuildDate: NSDate?
+    public var feedDescription: String?
+    public var language: String?
+    public var lastBuildDate: NSDate?
     
     func setlastBuildDate(let dateString: String!)
     {
         lastBuildDate = NSDate.dateFromInternetDateTimeString(dateString)
     }
     
-    var generator: String?
-    var copyright: String?
+    public var generator: String?
+    public var copyright: String?
     
     
     override init()
@@ -39,7 +39,7 @@ class RSSFeed: NSObject, NSCoding {
     }
     
     // MARK: NSCoding
-    required init?(coder aDecoder: NSCoder)
+    required public init?(coder aDecoder: NSCoder)
     {
         super.init()
         
@@ -54,7 +54,7 @@ class RSSFeed: NSObject, NSCoding {
         items = aDecoder.decodeObjectForKey("items") as! [RSSItem]
     }
     
-    func encodeWithCoder(aCoder: NSCoder)
+    public func encodeWithCoder(aCoder: NSCoder)
     {
         if let title = self.title
         {

@@ -8,48 +8,48 @@
 
 import UIKit
 
-class RSSItem: NSObject, NSCoding {
-    var title: String?
-    var link: NSURL?
+public class RSSItem: NSObject, NSCoding {
+    public var title: String?
+    public var link: NSURL?
     
     func setLinkAsString(let linkString: String!)
     {
         link = NSURL(string: linkString)
     }
 
-    var guid: String?
-    var pubDate: NSDate?
+    public var guid: String?
+    public var pubDate: NSDate?
     
     func setPubDateAsString(let dateString: String!)
     {
         pubDate = NSDate.dateFromInternetDateTimeString(dateString)
     }
     
-    var itemDescription: String?
-    var content: String?
+    public var itemDescription: String?
+    public var content: String?
     
     // Wordpress specifics
-    var commentsLink: NSURL?
+    public var commentsLink: NSURL?
     
     func setCommentsLinkAsString(let linkString: String!)
     {
         commentsLink = NSURL(string: linkString)
     }
     
-    var commentsCount: Int?
+    public var commentsCount: Int?
     
-    var commentRSSLink: NSURL?
+    public var commentRSSLink: NSURL?
     
     func setCommentRSSLinkAsString(let linkString: String!)
     {
         commentRSSLink = NSURL(string: linkString)
     }
     
-    var author: String?
+    public var author: String?
     
-    var categories: [String]! = [String]()
+    public var categories: [String]! = [String]()
     
-    var imagesFromItemDescription: [NSURL]! {
+    public var imagesFromItemDescription: [NSURL]! {
         if let itemDescription = self.itemDescription
         {
             return itemDescription.imageLinksFromHTMLString
@@ -58,7 +58,7 @@ class RSSItem: NSObject, NSCoding {
         return [NSURL]()
     }
     
-    var imagesFromContent: [NSURL]! {
+    public var imagesFromContent: [NSURL]! {
         if let content = self.content
         {
             return content.imageLinksFromHTMLString
@@ -73,7 +73,7 @@ class RSSItem: NSObject, NSCoding {
     }
     
     // MARK: NSCoding
-    required init?(coder aDecoder: NSCoder)
+    required public init?(coder aDecoder: NSCoder)
     {
         super.init()
         
@@ -90,7 +90,7 @@ class RSSItem: NSObject, NSCoding {
         categories = aDecoder.decodeObjectForKey("categories") as? [String]
     }
     
-    func encodeWithCoder(aCoder: NSCoder)
+    public func encodeWithCoder(aCoder: NSCoder)
     {
         if let title = self.title
         {

@@ -8,9 +8,9 @@
 
 import UIKit
 
-class RSSParser: NSObject, NSXMLParserDelegate {
+public class RSSParser: NSObject, NSXMLParserDelegate {
     
-    class func parseFeedForRequest(request: NSURLRequest, callback: (feed: RSSFeed?, error: NSError?) -> Void)
+    public class func parseFeedForRequest(request: NSURLRequest, callback: (feed: RSSFeed?, error: NSError?) -> Void)
     {
         let rssParser: RSSParser = RSSParser()
         
@@ -63,11 +63,11 @@ class RSSParser: NSObject, NSXMLParserDelegate {
     }
     
 // MARK: NSXMLParserDelegate
-    func parserDidStartDocument(parser: NSXMLParser)
+    public func parserDidStartDocument(parser: NSXMLParser)
     {
     }
     
-    func parserDidEndDocument(parser: NSXMLParser)
+    public func parserDidEndDocument(parser: NSXMLParser)
     {
         if let closure = self.callbackClosure
         {
@@ -75,7 +75,7 @@ class RSSParser: NSObject, NSXMLParserDelegate {
         }
     }
     
-    func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
+    public func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
         
         if elementName == node_item
         {
@@ -86,7 +86,7 @@ class RSSParser: NSObject, NSXMLParserDelegate {
         
     }
    
-    func parser(parser: NSXMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
+    public func parser(parser: NSXMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
         
         if elementName == node_item
         {
@@ -196,11 +196,11 @@ class RSSParser: NSObject, NSXMLParserDelegate {
         }
     }
     
-    func parser(parser: NSXMLParser, foundCharacters string: String) {
+    public func parser(parser: NSXMLParser, foundCharacters string: String) {
         self.currentElement += string
     }
     
-    func parser(parser: NSXMLParser, parseErrorOccurred parseError: NSError) {
+    public func parser(parser: NSXMLParser, parseErrorOccurred parseError: NSError) {
         
         if let closure = self.callbackClosure
         {
